@@ -14,9 +14,9 @@
 
 # Namespace
 PRODUCT_SOONG_NAMESPACES += \
-    device/xiaomi/sm6225-common-miuicamera
+    device/xiaomi/surya-miuicamera
 
-DEVICE_CAMERA_PATH := device/xiaomi/sm6225-common-miuicamera
+DEVICE_CAMERA_PATH := device/xiaomi/surya-miuicamera
 TARGET_USES_MIUI_CAMERA := true 
 
 # Camera property
@@ -35,10 +35,14 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_CAMERA_PATH)/configs/hidl
 PRODUCT_PACKAGES += \
     android.hidl.memory.block@1.0 \
     android.hidl.memory.block@1.0.vendor
-
+    
 # Init scripts
 PRODUCT_COPY_FILES += \
     $(DEVICE_CAMERA_PATH)/init/init.miuicamera.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.miuicamera.rc
+
+# MIUI Camera Overlay to Surya and Karna
+PRODUCT_PACKAGES += \
+    SuryaMiuiCameraOverlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -55,4 +59,4 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_CAMERA_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_CAMERA_PATH)/sepolicy/public
 
 # Vendor Proprietary
-$(call inherit-product, vendor/xiaomi/sm6225-common-miuicamera/sm6225-common-miuicamera-vendor.mk)
+$(call inherit-product, vendor/xiaomi/surya-miuicamera/surya-miuicamera-vendor.mk)

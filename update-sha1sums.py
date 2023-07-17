@@ -20,7 +20,7 @@ import os
 import sys
 from hashlib import sha1
 
-device = 'sm6225-common-miuicamera'
+device = 'surya-miuicamera'
 vendor = 'xiaomi'
 
 with open('proprietary-files.txt', 'r') as f:
